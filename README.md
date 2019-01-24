@@ -13,11 +13,12 @@ _This is a website that does pig latin translation into the strings user has inp
 
 ## Specs
 |   Behavior                                      | Input Example | Output Example |
-| ----------------------------------------------- |:-------------:| --------------:|
+| ----------------------------------------------- |:-------------:| :-------------:|
 | words beginning with vowel                      | eat           | eatway         |
 | words beginning with one or more consonants     | play          | ayplay         |
 | if first consonants include "qu"                | squeak        | eaksquay       |
-
+| no alphabetical input                           | 33,!#,        | 33,!#,         |
+| all consonants                                  | why           | whyay          |
 
 ## Support and contact details
 
