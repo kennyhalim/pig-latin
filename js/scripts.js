@@ -1,12 +1,14 @@
 var pigLatin = function(strings){
   var vowels = ['a', 'e', 'i', 'o', 'u'];
   var words = strings.split(' ');
+
   var finishSentence = "";
 
   words.forEach(function(word){
-    if (!isNaN(word)){
+    if (!(/[a-zA-Z]/.test(word))){
       finishSentence +=  word + " ";
-    } else {
+    }
+     else {
     if (word.length > 1 && vowels.includes(word.charAt(0).toLowerCase())){
       finishSentence += word + "way" + " ";
     }
