@@ -5,25 +5,23 @@ var pigLatin = function(strings){
   var finishSentence = "";
 
   words.forEach(function(word){
-    if (!(/[a-zA-Z]/.test(word))){
+    if (word.toUpperCase().replace(/[A-Z]/g, '') != ""){
       finishSentence +=  word + " ";
-    }
-     else {
+    } else {
     if (word.length > 1 && vowels.includes(word.charAt(0).toLowerCase())){
       finishSentence += word + "way" + " ";
-    }
-    else if (word.length < 2 && vowels.includes(word.charAt(0).toLowerCase())){
-      finishSentence += word + "ay" + " ";
-    }
-    else if (word.toLowerCase().includes("qu")){
-      var indexofqu = word.indexOf("qu") + 2;
-      var quword = [];
-      for (var k = 0; k < indexofqu;k++){
-        quword.push(word.toLowerCase().charAt(k));
-      }
-      finishSentence +=  word.slice(indexofqu) + quword.join('') + "ay" + " ";
-    }
-    else {
+    } else if (word.length < 2 && vowels.includes(word.charAt(0).toLowerCase())){
+        finishSentence += word + "ay" + " ";
+    } else if (word.toLowerCase().includes("qu")){
+        var indexofqu = word.indexOf("qu") + 2;
+        var quword = [];
+        for (var k = 0; k < indexofqu;k++){
+          quword.push(word.toLowerCase().charAt(k));
+        }
+        finishSentence +=  word.slice(indexofqu) + quword.join('') + "ay" + " ";
+    } else if (word.match(/[aeiouAEIOU]/) === null){
+        finishSentence += word + "ay" + " ";
+    } else {
         var index = [];
         for(var i = 0; i<vowels.length;i++){
           if (word.toLowerCase().indexOf(vowels[i]) != -1){
@@ -39,6 +37,7 @@ var pigLatin = function(strings){
     }
   }
     });
+
     return finishSentence;
   };
 
